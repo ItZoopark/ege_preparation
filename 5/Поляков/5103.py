@@ -16,13 +16,13 @@ a = set()
 for N in range(0, 1000000 + 1):
     if N % 2 == 0:
         N_bin = bin(N)[2:]
-        tmp = int('1' + N_bin + '10', 2)
-        if N_bin[0] == '1' and 800 <= tmp <= 1500:
+        R = int('1' + N_bin + '10', 2)
+        if N_bin[0] == '1' and 800 <= R <= 1500:
             a.add(N)
     else:
         N_bin = bin(N)[2:]
-        tmp = int('11' + N_bin + '0', 2)
-        if N_bin[0] == '1' and 800 <= tmp <= 1500:
+        R = int('11' + N_bin + '0', 2)
+        if N_bin[0] == '1' and 800 <= R <= 1500:
             a.add(N)
 
 print(a)
