@@ -5,11 +5,17 @@ def commonDigit(x, y):
     #     return True
     # else:
     #     return False
-    l = min(len(a), len(b))
+    # l = min(len(a), len(b))
+    l = len(a)
+    count = 0
     for i in range(l):
         if a[i] == b[i]:
-            return True
-    return False
+            count += 1
+
+    if count == 1:
+        return True
+    else:
+        return False
 
 
 f = open("5206.txt")
@@ -17,7 +23,7 @@ s = [int(x.strip()) for x in f]
 sum_max = sum(sorted(s)[-2:])
 min_sum = float('inf')
 count = 0
-for i in range(len(s) - 4):
+for i in range(len(s) - 2): # 0...len(s)-3
     if (commonDigit(s[i], s[i + 1]) or commonDigit(s[i], s[i + 2]) or commonDigit(s[i + 2], s[i + 1])) \
             and (s[i] + s[i + 1] + s[i + 2]) < sum_max:
         count += 1
